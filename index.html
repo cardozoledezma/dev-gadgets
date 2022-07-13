@@ -28,23 +28,23 @@
         <section class="page-pics">
             <div class="pictures">
                 <button type="button" class="pictures-handler pictures-prev">◀️</button>
-                <img class="pictures-img" src="img/canard-jaune-1-l.png" alt="canard jaune pour dévloppeur">
+                <img  id="switch" class="pictures-img" src="img/canard-jaune-1-l.png" alt="canard jaune pour dévloppeur">
                 <button type="button" class="pictures-handler pictures-next">▶️</button>
                 <ul class="thumbs">
                     <li class="thumbs-itm">
-                        <img class="thumbs-img" src="img/canard-jaune-1-s.png" alt="photo canard 1">
+                        <img class="thumbs-img" src="img/canard-jaune-1-s.png" alt="photo canard 1" onmouseover="document.getElementById('switch').src='img/canard-jaune-1-l.png'">
                     </li>
                     <li class="thumbs-itm">
-                        <img class="thumbs-img" src="img/canard-jaune-2-s.png" alt="photo canard 2">
+                        <img class="thumbs-img" src="img/canard-jaune-2-s.png" alt="photo canard 2" onmouseover="document.getElementById('switch').src='img/canard-jaune-2-l.png'">
                     </li>
                     <li class="thumbs-itm">
-                        <img class="thumbs-img" src="img/canard-jaune-3-s.png" alt="photo canard 3">
+                        <img class="thumbs-img" src="img/canard-jaune-3-s.png" alt="photo canard 3" onmouseover="document.getElementById('switch').src='img/canard-jaune-3-l.png'">
                     </li>
                     <li class="thumbs-itm">
-                        <img class="thumbs-img" src="img/canard-jaune-4-s.png" alt="photo canard 4">
+                        <img class="thumbs-img" src="img/canard-jaune-4-s.png" alt="photo canard 4" onmouseover="document.getElementById('switch').src='img/canard-jaune-4-l.png'">
                     </li>
                     <li class="thumbs-itm">
-                        <img class="thumbs-img" src="img/canard-jaune-5-s.png" alt="photo canard 5">
+                        <img class="thumbs-img" src="img/canard-jaune-5-s.png" alt="photo canard 5" onmouseover="document.getElementById('switch').src='img/canard-jaune-5-l.png'">
                     </li>
                 </ul>
             </div>
@@ -87,7 +87,7 @@
         <section class="similar page-section">
             <h2 class="product-subttl">Articles similaires</h2>
             <ul class="similar-lst">
-                <li class="similar-itm">
+                <li class="active similar-itm">
                     <a class="similar-lnk" href="#">
                         <img class="similar-img" src="img/canard-dragon.png" alt="canard dragon">
                         <h3 class="similar-ttl">Canard Dragon</h3>
@@ -116,6 +116,10 @@
                     </a>
                 </li>
             </ul>
+            <div class="container-btn">
+                <div class="btn-nav left">←</div>
+                <div class="btn-nav right">→</div>
+            </div>
         </section>
     </main>
     <aside class="reinsur">
@@ -148,5 +152,6 @@
         </ul>
         <div class="footer-cp">© 2022 - Dev Gadgets</div>
     </footer>
+    <script type="text/javascript" src="/js/script.js"></script>
 </body>
 </html>
