@@ -178,6 +178,7 @@ body {
     font-size: 1.5rem;
 }
 .product-acrd-lnk.closed::after {
+    display: none;
     content: "🔻";
 }
 
@@ -412,6 +413,17 @@ body {
     animation: fade 0.8s;
     width: 600px;
 }
+
+.thumbs .thumbs-itm{
+    max-width: 100%;
+    display: none;
+}
+.thumbs-itm.active{
+    display: block;
+    animation: fade 0.8s;
+    width: 600px;
+}
+
 
 }
 

@@ -1,8 +1,8 @@
 //carrousel
-const listImg = document.querySelectorAll(".similar-itm");
+const listImg = document.querySelectorAll(".similar-itm ");
 const numbImg = listImg.length;
-const next = document.querySelector(".right");
-const prev = document.querySelector(".left");
+const next = document.querySelector(".right ");
+const prev = document.querySelector(".left ");
 let count = 0;
 
 
@@ -43,3 +43,14 @@ function carrouselPrev() {
 
 
 prev.addEventListener('click', carrouselPrev);
+
+
+
+//panier
+
+
+
+
+
+
+
