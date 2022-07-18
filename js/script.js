@@ -45,3 +45,31 @@ function manageGalleryHandlers() {
 function displayPicture(imgSrc) {
     document.getElementById("picture-main").src = imgSrc;
 }
+
+
+// ADD TO CART
+
+
+manageAddToCart();
+
+function manageAddToCart() {
+    document.getElementById("add-cta").addEventListener("click", function(event) {
+        let qty = getQuantity();
+        if (qty > 99) qty = "99+";
+        updateCartQuantity(qty);
+    });
+    document.getElementById("add-qty").addEventListener("keypress", function(event) {
+        if (isNaN(parseInt(event.key))) {
+            event.preventDefault();
+        }
+    })
+}
+
+function updateCartQuantity(quantity) {
+    document.getElementById("cart-nb").innerText = quantity;
+}
+
+function getQuantity() {
+    const qty = parseInt(document.getElementById("add-qty").value);
+    return isNaN(qty) || qty < 1 ? 1 : qty;
+}
