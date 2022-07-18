@@ -1,4 +1,4 @@
-// PICTURE GALLERY
+// PICTURES GALLERY
 
 let imgCount = 0;
 const picturesList = getPicturesLarge();
@@ -35,7 +35,9 @@ function manageGalleryHandlers() {
 
     getThumbsElements().forEach(thumb => {
         thumb.addEventListener("mouseover", function(event) {
-            displayPicture(event.target.dataset.imgLarge);
+            const src = event.target.dataset.imgLarge;
+            displayPicture(src);
+            imgCount = picturesList.indexOf(src);
         })
     });
 }
