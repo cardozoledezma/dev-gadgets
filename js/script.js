@@ -1,8 +1,12 @@
-// PICTURES GALLERY
 
 let imgCount = 0;
 const picturesList = getPicturesLarge();
 manageGalleryHandlers();
+
+manageAddToCart();
+
+
+// PICTURES GALLERY
 
 function getThumbsElements() {
     return document.querySelectorAll("#thumbs img[data-img-large]");
@@ -48,9 +52,6 @@ function displayPicture(imgSrc) {
 
 
 // ADD TO CART
-
-
-manageAddToCart();
 
 function manageAddToCart() {
     document.getElementById("add-cta").addEventListener("click", addQuantityToCart);
