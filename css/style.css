@@ -390,11 +390,32 @@ body {
     .similar-wrapper {
         width: 100%;
         overflow: hidden;
+        position: relative;
     }
     .similar-lst {
         grid-template-columns: repeat(4, 100vw);
         position: relative;
         transition: left var(--transition-duration) var(--transition-function);
+    }
+
+    .carousel-handler {
+        position: absolute;
+        top: calc(50% - 1.5rem);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 4rem;
+        aspect-ratio: 1/1;
+        font-size: 3rem;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .carousel-prev {
+        left: 1rem;
+    }
+    .carousel-next {
+        right: 1rem;
     }
 }
 
@@ -404,6 +425,9 @@ body {
     }
     .similar-lnk:hover {
         background-color: #dddddd;
+    }
+    .carousel-handler {
+        display: none;
     }
 }
 
