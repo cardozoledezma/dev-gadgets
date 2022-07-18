@@ -204,10 +204,6 @@ body {
     font-weight: bold;
 }
 
-.hidden {
-    display: none;
-}
-
 @media screen and (min-width: 768px) {
     .product-subttl {
         text-align: center;
@@ -395,6 +391,7 @@ body {
     .similar-lst {
         grid-template-columns: repeat(4, 100vw);
         position: relative;
+        left: 0;
         transition: left var(--transition-duration) var(--transition-function);
     }
 
@@ -543,4 +540,11 @@ body {
 }
 .legal-lnk {
     color: #fff;
+}
+
+
+
+
+.hidden {
+    display: none;
 }

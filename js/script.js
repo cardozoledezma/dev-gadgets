@@ -7,6 +7,10 @@ manageAddToCart();
 
 manageAccordions();
 
+let carouselCount = 0;
+const carouselPrev = document.getElementById("carousel-prev");
+const carouselNext = document.getElementById("carousel-next");
+const carouselList = document.getElementById("carousel-list");
 manageCarousel();
 
 
@@ -136,19 +140,38 @@ function updateAccordion(title) {
 
 // CAROUSEL
 
-let carouselCount = 0;
-
 function manageCarousel() {
-    document.getElementById("carousel-prev").addEventListener("click", function(event) {
+    updateCarouselHandlers();
+
+    carouselPrev.addEventListener("click", function(event) {
         carouselCount--;
         updateCarousel();
     });
-    document.getElementById("carousel-next").addEventListener("click", function(event) {
+    carouselNext.addEventListener("click", function(event) {
         carouselCount++;
         updateCarousel();
     });
 }
 
 function updateCarousel() {
-    document.getElementById("carousel-list").style.left = `-${carouselCount}00vw`;
+    updateCarouselHandlers();
+    carouselList.style.left = `-${carouselCount}00vw`;
+}
+
+function getCarouselLength() {
+    return carouselList.childElementCount;
+}
+
+function updateCarouselHandlers() {
+    if (carouselCount === 0) {
+        carouselPrev.classList.add("hidden");
+    } else {
+        carouselPrev.classList.remove("hidden");
+    }
+
+    if (carouselCount === getCarouselLength()-1) {
+        carouselNext.classList.add("hidden");
+    } else {
+        carouselNext.classList.remove("hidden");
+    }
 }
