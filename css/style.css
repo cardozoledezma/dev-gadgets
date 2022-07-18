@@ -348,7 +348,7 @@ body {
 }
 .similar-lst {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    
 }
 .similar-lnk {
     position: relative;
@@ -386,7 +386,22 @@ body {
     background-color: var(--primary-color);
 }
 
+@media screen and (max-width: 767px) {
+    .similar-wrapper {
+        width: 100%;
+        overflow: hidden;
+    }
+    .similar-lst {
+        grid-template-columns: repeat(4, 100vw);
+        position: relative;
+        transition: left var(--transition-duration) var(--transition-function);
+    }
+}
+
 @media screen and (min-width: 768px) {
+    .similar-lst {
+        grid-template-columns: repeat(4, 1fr);
+    }
     .similar-lnk:hover {
         background-color: #dddddd;
     }
