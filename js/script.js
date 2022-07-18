@@ -23,6 +23,8 @@ function getPicturesLarge() {
 }
 
 function manageGalleryHandlers() {
+
+    // Mobile - Click for previous picture
     document.getElementById("picture-prev").addEventListener("click", function(event) {
         imgCount--;
         if (imgCount < 0) {
@@ -31,6 +33,7 @@ function manageGalleryHandlers() {
         displayPicture(picturesList[imgCount]);
     });
 
+    // Mobile - Click for next picture
     document.getElementById("picture-next").addEventListener("click", function(event) {
         imgCount++;
         if (imgCount > picturesList.length-1) {
@@ -39,6 +42,7 @@ function manageGalleryHandlers() {
         displayPicture(picturesList[imgCount]);
     });
 
+    // Desktop - Display picture on mouse hover
     getThumbsElements().forEach(thumb => {
         thumb.addEventListener("mouseover", function(event) {
             const src = event.target.dataset.imgLarge;
@@ -56,11 +60,12 @@ function displayPicture(imgSrc) {
 // ADD TO CART
 
 function manageAddToCart() {
+    // Click on Add to cart button 
     document.getElementById("add-cta").addEventListener("click", addQuantityToCart);
+    
+    // Only numbers are allowed in quantity input
     document.getElementById("add-qty").addEventListener("keypress", function(event) {
-        if (isNaN(parseInt(event.key))) {
-            event.preventDefault();
-        }
+        if (isNaN(parseInt(event.key))) event.preventDefault();
     });
 }
 
@@ -82,8 +87,8 @@ function getQuantity() {
 
 function disableCta(button) {
     button.classList.add("added");
-    button.removeEventListener("click", addQuantityToCart);
     button.innerText = "Déjà au panier";
+    button.removeEventListener("click", addQuantityToCart);
 }
 
 
@@ -91,7 +96,11 @@ function disableCta(button) {
 
 function manageAccordions() {
     document.querySelectorAll(".js-accordion-ttl").forEach(ttl => {
+
+        // Update accordion status xith local storage
         updateAccordion(ttl);
+
+        // Click on title
         ttl.addEventListener("click", function() {
             toggleAccordionDisplay(this);
         });
@@ -119,6 +128,5 @@ function getAccordionStatusFromId(id) {
 }
 
 function updateAccordion(title) {
-    console.log(title.id, localStorage.getItem(title.id));
     if (getAccordionStatusFromId(title.id)) closeAccordion(title);
 }
