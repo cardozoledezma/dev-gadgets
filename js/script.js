@@ -83,3 +83,22 @@ function disableCta(button) {
     button.removeEventListener("click", addQuantityToCart);
     button.innerText = "Déjà au panier";
 }
+
+
+// ACCORDIONS
+
+const title1 = document.getElementById("product-advantages-ttl");
+const content1 = document.getElementById("product-advantages");
+
+title1.addEventListener("click", function() {
+    this.classList.toggle("closed");
+    content1.classList.toggle("hidden");
+});
+
+const title2 = document.getElementById("product-car-ttl");
+const content2 = document.getElementById("product-car");
+
+title2.addEventListener("click", function() {
+    this.classList.toggle("closed");
+    content2.classList.toggle("hidden");
+});
