@@ -5,6 +5,8 @@ manageGalleryHandlers();
 
 manageAddToCart();
 
+manageAccordions();
+
 
 // PICTURES GALLERY
 
@@ -87,18 +89,15 @@ function disableCta(button) {
 
 // ACCORDIONS
 
-const title1 = document.getElementById("product-advantages-ttl");
-const content1 = document.getElementById("product-advantages");
+function manageAccordions() {
+    document.querySelectorAll(".js-accordion-ttl").forEach(ttl => {
+        ttl.addEventListener("click", function() {
+            toggleDisplay(this);
+        });
+    });
+}
 
-title1.addEventListener("click", function() {
-    this.classList.toggle("closed");
-    content1.classList.toggle("hidden");
-});
-
-const title2 = document.getElementById("product-car-ttl");
-const content2 = document.getElementById("product-car");
-
-title2.addEventListener("click", function() {
-    this.classList.toggle("closed");
-    content2.classList.toggle("hidden");
-});
+function toggleDisplay(title) {
+    title.classList.toggle("closed");
+    title.nextElementSibling.classList.toggle("hidden");
+}
