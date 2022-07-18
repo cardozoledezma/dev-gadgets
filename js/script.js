@@ -91,13 +91,34 @@ function disableCta(button) {
 
 function manageAccordions() {
     document.querySelectorAll(".js-accordion-ttl").forEach(ttl => {
+        updateAccordion(ttl);
         ttl.addEventListener("click", function() {
-            toggleDisplay(this);
+            toggleAccordionDisplay(this);
         });
     });
 }
 
-function toggleDisplay(title) {
+function toggleAccordionDisplay(title) {
     title.classList.toggle("closed");
     title.nextElementSibling.classList.toggle("hidden");
+    setAccordionStatus(title);
+}
+
+function closeAccordion(title) {
+    title.classList.add("closed");
+    title.nextElementSibling.classList.add("hidden");
+    setAccordionStatus(title);
+}
+
+function setAccordionStatus(title) {
+    localStorage.setItem(title.id, title.classList.contains("closed"));
+}
+
+function getAccordionStatusFromId(id) {
+    return localStorage.getItem(id) == "true";
+}
+
+function updateAccordion(title) {
+    console.log(title.id, localStorage.getItem(title.id));
+    if (getAccordionStatusFromId(title.id)) closeAccordion(title);
 }
