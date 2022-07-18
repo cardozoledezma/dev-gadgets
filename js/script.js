@@ -80,4 +80,5 @@ function getQuantity() {
 function disableCta(button) {
     button.classList.add("added");
     button.removeEventListener("click", addQuantityToCart);
+    button.innerText = "Déjà au panier";
 }
