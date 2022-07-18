@@ -12,6 +12,7 @@
     --secondary-color: #FDF148;
     --background-dark: #3c3c3c;
     --light-green: #679289;
+    --disable-grey: #3e3e3e;
 
     /* Transistion */
     --transition-duration: .5s;
@@ -261,6 +262,12 @@ body {
 }
 .add-cta:hover {
     background-color: var(--background-dark)
+}
+.add-cta.added {
+    background-color: var(--disable-grey);
+}
+.add-cta.added:hover {
+    cursor: not-allowed;
 }
 
 /* PICTURES */

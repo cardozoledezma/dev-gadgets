@@ -53,16 +53,19 @@ function displayPicture(imgSrc) {
 manageAddToCart();
 
 function manageAddToCart() {
-    document.getElementById("add-cta").addEventListener("click", function(event) {
-        let qty = getQuantity();
-        if (qty > 99) qty = "99+";
-        updateCartQuantity(qty);
-    });
+    document.getElementById("add-cta").addEventListener("click", addQuantityToCart);
     document.getElementById("add-qty").addEventListener("keypress", function(event) {
         if (isNaN(parseInt(event.key))) {
             event.preventDefault();
         }
-    })
+    });
+}
+
+function addQuantityToCart() {
+    let qty = getQuantity();
+    if (qty > 99) qty = "99+";
+    updateCartQuantity(qty);
+    disableCta(this);
 }
 
 function updateCartQuantity(quantity) {
@@ -72,4 +75,9 @@ function updateCartQuantity(quantity) {
 function getQuantity() {
     const qty = parseInt(document.getElementById("add-qty").value);
     return isNaN(qty) || qty < 1 ? 1 : qty;
+}
+
+function disableCta(button) {
+    button.classList.add("added");
+    button.removeEventListener("click", addQuantityToCart);
 }
