@@ -7,6 +7,8 @@ manageAddToCart();
 
 manageAccordions();
 
+manageCarousel();
+
 
 // PICTURES GALLERY
 
@@ -129,4 +131,24 @@ function getAccordionStatusFromId(id) {
 
 function updateAccordion(title) {
     if (getAccordionStatusFromId(title.id)) closeAccordion(title);
+}
+
+
+// CAROUSEL
+
+let carouselCount = 0;
+
+function manageCarousel() {
+    document.getElementById("carousel-prev").addEventListener("click", function(event) {
+        carouselCount--;
+        updateCarousel();
+    });
+    document.getElementById("carousel-next").addEventListener("click", function(event) {
+        carouselCount++;
+        updateCarousel();
+    });
+}
+
+function updateCarousel() {
+    document.getElementById("carousel-list").style.left = `-${carouselCount}00vw`;
 }
